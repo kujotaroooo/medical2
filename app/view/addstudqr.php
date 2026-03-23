@@ -1,16 +1,18 @@
 <?php
-include 'qrlib.php'; 
+include '../services/qrlib.php';
 
 
 $text = "S";
 
 
-$filename = '../qrcodes/text.txt';
+$filepath = __DIR__ . '/../qrcodes/stud2.png';
 
 
-QRcode::png($text, $filename, QR_ECLEVEL_L, 6);
+$displayPath = '../qrcodes/stud.png';
+
+QRcode::png($text, $filepath, QR_ECLEVEL_L, 6);
 
 
-echo "QR code generated! <br>";
-echo "<img src='$filename' />";
+echo "generated <br>";
+echo "<img src='$displayPath' />";
 ?>

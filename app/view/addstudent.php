@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +22,9 @@
         .col-md-6 {
             padding-left: 10px;
             padding-right: 10px;
+        }
+        #v{
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -45,7 +52,7 @@
                
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Student Number</label>
+                                <label id="d">Student Number</label>
                                 <input type="text" name="student_number" placeholder="2024-0001" required>
                             </div>
                         </div>
@@ -95,8 +102,7 @@
                                
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
-                                      <option value="female">yes please</option>
-                                      
+                                 
                                 </select>
                             </div>
                         </div>
@@ -111,13 +117,30 @@
                     </div>
 
                     <div class="form-actions">
+                        <br>
+                        <br>
                         <button type="submit" name="add" class="btn-save">Save Student</button>
                         <a href="students.php" class="btn-cancel">Cancel</a>
+                               
+                    </div>
+                    <div id="v">
+                                             <?php if (isset($_SESSION['error'])):?>
+      <div class="alert alert-danger">
+       <?php echo $_SESSION['error']; ?>
+    </div>
+<?php endif;  unset($_SESSION['error']); ?>
+
+<?php if(isset($_SESSION['success'])):?>
+    <div class="alert alert-success">
+        <?php echo $_SESSION['success']; ?>
+    </div>
+<?php endif;  unset($_SESSION['success']); ?>
                     </div>
 
                 </form>
 
             </div>
+            
         </div>
 
     </div>
